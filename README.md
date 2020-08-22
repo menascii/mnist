@@ -26,7 +26,7 @@ mnist training program in c++
    
    output:
    
-      write updated model weights to file used to test mnist test data using testing_mnist.cpp
+      write updated model weights to file for mnist test data using testing_mnist.cpp
       
    note:
    

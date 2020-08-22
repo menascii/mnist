@@ -3,10 +3,10 @@ mnist database digit recognition
 
 mnist training program in c++
      
-   compile:
+   compile: 
       g++ training_mnist.cpp
     
-   run:
+   run: 
       ./a.out  
 
    input:      

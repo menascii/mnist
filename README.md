@@ -14,6 +14,7 @@ mnist training program in c++
    input:      
       hardcoded file name for mnist training images containing 60,000 digits
       hardcoded file name for corresponding 60,000 mnist training labels
+      
       download training data from http://yann.lecun.com/exdb/mnist/
       
         train-images-idx3-ubyte.gz

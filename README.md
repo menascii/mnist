@@ -1,7 +1,7 @@
 # mnist_database_digit_recognition
 mnist database digit recognition
 
-mnist training program in c++ by @menascii
+mnist training program in c++
      
    compile:
    

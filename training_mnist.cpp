@@ -59,6 +59,7 @@ int main()
 {
   ifstream training_image;
   ifstream training_label;
+     
   // mnist binary training digits file name                                       
   string training_images = "train-images";
   // mnist binary training labels                                                                                    

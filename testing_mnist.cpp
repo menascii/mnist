@@ -100,7 +100,7 @@ int main()
 
   int predict;
   int correct;
-  double percetage;
+  double percentage;
   double cost_error;
 
   // mnist image digit 28 x 28                              
@@ -161,8 +161,8 @@ int main()
   }
   // print results
   cout << "#############################" << endl;
-  percetage = (double)(correct) / 10000 * 100.0;
-  cout << "correct predictions: " << correct << " / " << 10000 << " = " << percetage << "%" << endl;
+  percentage = (double)(correct) / 10000 * 100.0;
+  cout << "correct predictions: " << correct << " / " << 10000 << " = " << percentage << "%" << endl;
 
   testing_image.close();
   testing_label.close();

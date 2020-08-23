@@ -1,7 +1,8 @@
 # mnist_database_digit_recognition
 mnist database digit recognition
 
-1) mnist training program in c++
+1)
+mnist training program in c++
      
    compile:
    
@@ -34,8 +35,8 @@ mnist database digit recognition
       refer to testing_mnist.cpp for further details.
       
       
-      
-2) mnist testing program in c++ by @menascii
+2)
+mnist testing program in c++ by @menascii
      
    compile:
    

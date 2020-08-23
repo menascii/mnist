@@ -98,40 +98,40 @@ int main()
   ifstream testing_image;
   ifstream testing_label;
 
-	int predict;
-	int correct;
-	double percetage;
-	double cost_error;
+  int predict;
+  int correct;
+  double percetage;
+  double cost_error;
 
-	// mnist image digit 28 x 28                              
-	int image_digit[28][28];
+  // mnist image digit 28 x 28                              
+  int image_digit[28][28];
   int image_label;
   // expected value as output array
   // value in array is 7
   // {0, 0, 0, 0, 0, 0, 0, 1, 0, 0}
-	double expected[10];
+  double expected[10];
 
-	// neural network layers
-	double *layer_one, *layer_two, *layer_three;
-	// neural network weights
-	double **layer_one_weights, **layer_two_weights;
+  // neural network layers
+  double *layer_one, *layer_two, *layer_three;
+  // neural network weights
+  double **layer_one_weights, **layer_two_weights;
 
-	// open mnist testing images
+  // open mnist testing images
   testing_image.open(testing_images.c_str(), ios::in | ios::binary);
   // open mnist testing labels
   testing_label.open(testing_labels.c_str(), ios::in | ios::binary );
   // read headers from training images and labels
-	read_headers(testing_image, testing_label);
+  read_headers(testing_image, testing_label);
 
-	// initialize neural network layers
-	init_layers(layer_one, layer_two, layer_three);
+  // initialize neural network layers
+  init_layers(layer_one, layer_two, layer_three);
 		
-	// read output model weights generated from training_mnist.cpp
+  // read output model weights generated from training_mnist.cpp
   read_weights(model_weights, layer_one_weights, layer_two_weights);
   
   cout << "testing mnist dataset only wrong predictions will be displayed" << endl;
   correct = 0;
-	for (int image_index = 0; image_index < 10000; image_index++)
+  for (int image_index = 0; image_index < 10000; image_index++)
   {
   	// read image and label
   	// assign each 28*28 pixel to first layer as 784 activations in neural network
@@ -140,24 +140,24 @@ int main()
   	testing_process(layer_one, layer_two, layer_three, 
                  		layer_one_weights, layer_two_weights, predict);
 
-		cost_value(layer_three, expected, cost_error);
+	cost_value(layer_three, expected, cost_error);
 
-		if (image_label != predict) 
-		{
-			cout << "!!!!!! wrong prediction !!!!!!" << endl;
-			cout << "####### testing digit #######" << endl;
-    	cout << "mnist testing image #: " << image_index << endl; 
-			// print mnist 28x28 mnist digit and label
-			print_digit(image_digit);
-			cout << "expected value:  " << image_label << endl;
-			cout << "predicted value: " << predict << endl;
-			cout << "cost error:      " << cost_error << endl;
-			cout << endl;
-		}
-		else
-		{
-			correct++;
-		}
+	if (image_label != predict) 
+	{
+		cout << "!!!!!! wrong prediction !!!!!!" << endl;
+		cout << "####### testing digit #######" << endl;
+    		cout << "mnist testing image #: " << image_index << endl; 
+		// print mnist 28x28 mnist digit and label
+		print_digit(image_digit);
+		cout << "expected value:  " << image_label << endl;
+		cout << "predicted value: " << predict << endl;
+		cout << "cost error:      " << cost_error << endl;
+		cout << endl;
+	}
+	else
+	{
+		correct++;
+	}
   }
   // print results
   cout << "#############################" << endl;

@@ -89,9 +89,9 @@ double sigmoid(double x);
 int main() 
 {
 	ifstream testing_image;
-  	ifstream testing_label;
+	ifstream testing_label;
 
-  	// mnist binary testing digits file name 
+	// mnist binary testing digits file name 
 	string testing_images = "test-images";
 	// mnist binary testing labels 
 	string testing_labels = "test-labels";
@@ -114,28 +114,28 @@ int main()
 	double **layer_one_weights, **layer_two_weights;
 
 	// open mnist testing images
-    testing_image.open(testing_images.c_str(), ios::in | ios::binary); // Binary image file
-    // open mnist testing labels
-    testing_label.open(testing_labels.c_str(), ios::in | ios::binary ); // Binary label file
-    // read headers from training images and labels
+    	testing_image.open(testing_images.c_str(), ios::in | ios::binary); // Binary image file
+    	// open mnist testing labels
+    	testing_label.open(testing_labels.c_str(), ios::in | ios::binary ); // Binary label file
+    	// read headers from training images and labels
   	read_headers(testing_image, testing_label);
 
   	// initialize neural network layers
 	init_layers(layer_one, layer_two, layer_three);
 		
 	// read output model weights generated from training_mnist.cpp
-    read_weights(model_weights, layer_one_weights, layer_two_weights);
+    	read_weights(model_weights, layer_one_weights, layer_two_weights);
     
-    cout << "testing mnist dataset only wrong predictions will be displayed" << endl;
-    correct = 0;
+    	cout << "testing mnist dataset only wrong predictions will be displayed" << endl;
+    	correct = 0;
   	for (int image_index = 0; image_index < 10000; image_index++)
-    {
-    	// read image and label
-      	// assign each 28*28 pixel to first layer as 784 activations in neural network
-      	read_image(testing_image, testing_label, image_digit, layer_one, expected, image_label);
+    	{
+    		// read image and label
+      		// assign each 28*28 pixel to first layer as 784 activations in neural network
+      		read_image(testing_image, testing_label, image_digit, layer_one, expected, image_label);
     	
 
-    	testing_process(layer_one, layer_two, layer_three, 
+    		testing_process(layer_one, layer_two, layer_three, 
                    		layer_one_weights, layer_two_weights, predict);
 
 
@@ -145,7 +145,7 @@ int main()
 		{
 			cout << "!!!!!! wrong prediction !!!!!!" << endl;
 			cout << "####### testing digit #######" << endl;
-	    	cout << "mnist testing image #: " << image_index << endl; 
+	    		cout << "mnist testing image #: " << image_index << endl; 
 			// print mnist 28x28 mnist digit and label
   			print_digit(image_digit);
 			cout << "expected value:  " << image_label << endl;
@@ -196,25 +196,24 @@ void read_weights(string file_name, double **&layer_one_weights, double **&layer
 	training_weights.open(file_name.c_str(), ios::in);
 	
 	layer_one_weights = new double *[784]; 
-    for (int i = 0; i < 784; i++) 
-    {
-    	layer_one_weights[i] = new double [128];
-	    for (int j = 0; j < 128; j++) 
-	    {
+    	for (int i = 0; i < 784; i++) 
+    	{
+    		layer_one_weights[i] = new double [128];
+	    	for (int j = 0; j < 128; j++) 
+	    	{
 			training_weights >> layer_one_weights[i][j];
 		}
-    }
+   	}
 	
 	layer_two_weights = new double *[128]; 
-    for (int i = 0; i < 128; i++) 
-    {
-    	layer_two_weights[i] = new double [10];
-        for (int j = 0; j < 10; j++) 
-        {
+    	for (int i = 0; i < 128; i++) 
+    	{
+    		layer_two_weights[i] = new double [10];
+        	for (int j = 0; j < 10; j++) 
+        	{
 			training_weights >> layer_two_weights[i][j];
 		}
-    }
-	
+    	}
 	training_weights.close();
 }
 

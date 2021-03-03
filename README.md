@@ -107,5 +107,5 @@ mnist testing program in c++ by @menascii
    
       this program can be executed while training_mnist.cpp is
       executing. it will use the current weights written to the shared
-      model weights file.
+      model weights file. need to optimize but still pretty fast.
 
